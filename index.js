@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-
+require('dotenv').config();
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -7,9 +7,7 @@ const client = new Client({
         GatewayIntentBits.MessageContent
     ]
 });
-
 client.once('ready', () => {
     console.log(`Connecté en tant que ${client.user.tag}`);
 });
-
-client.login("MTM0MTQ2NzM4NDc4Mjc4MjQ3Ng.GmV32g.o0mx6ljjJMiBtUUhYV9ryEBL79xk2klActuDN0");
+client.login(process.env.TOKEN);

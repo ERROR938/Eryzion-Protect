@@ -1,4 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
+const Locales = require('./libs/Locales.js');
 require('dotenv').config();
 const client = new Client({
     intents: [
@@ -8,6 +9,9 @@ const client = new Client({
     ]
 });
 client.once('ready', () => {
-    console.log(`Connecté en tant que ${client.user.tag}`);
+    console.log(`${Locales['bot_init']} ${client.user.tag}`);
+    module.exports = client;
+    require("./init.js");
 });
+
 client.login(process.env.TOKEN);
